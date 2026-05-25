@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manufacturing NEXT 2026 — Pre-Registration</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --teal:#04a799;
+  --teal-dark:#038a7e;
+  --orange:#f77f03;
+  --black:#000000;
+  --white:#ffffff;
+  --gray-50:#f9f9f9;
+  --gray-100:#f0f0f0;
+  --gray-300:#cccccc;
+  --gray-500:#888888;
+  --gray-700:#444444;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'DM Sans',sans-serif;
+  background:#0a0a0a;
+  min-height:100vh;
+  color:#222;
+  position:relative;
+  overflow-x:hidden;
+}
+
+/* Grid background */
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
+  background-image:
+    linear-gradient(rgba(4,167,153,0.08) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(4,167,153,0.08) 1px,transparent 1px);
+  background-size:40px 40px;
+  pointer-events:none;
+  z-index:0;
+}
+body::after{
+  content:'';
+  position:fixed;
+  inset:0;
+  background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(4,167,153,0.12) 0%,transparent 70%);
+  pointer-events:none;
+  z-index:0;
+}
+
+.page-wrap{
+  position:relative;
+  z-index:1;
+  max-width:680px;
+  margin:0 auto;
+  padding:32px 16px 80px;
+}
+
+/* ─── HEADER ─── */
+.header{
+  background:#000;
+  border:1px solid rgba(4,167,153,0.25);
+  border-radius:12px 12px 0 0;
+  padding:32px 40px 26px;
+  position:relative;
+  overflow:hidden;
+}
+.header-grid{
+  position:absolute;inset:0;pointer-events:none;
+  background-image:linear-gradient(rgba(4,167,153,0.1) 1px,transparent 1px),linear-gradient(90deg,rgba(4,167,153,0.1) 1px,transparent 1px);
+  background-size:28px 28px;
+}
+.header-accent{
+  position:absolute;bottom:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--orange),var(--teal));
+}
+.logo-wrap{position:relative;z-index:1}
+.logo-row{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.logo-mfg{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:52px;font-weight:900;
+  color:var(--orange);
+  letter-spacing:-2px;line-height:1;
+}
+.logo-next{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:52px;font-weight:900;
+  color:#fff;
+  letter-spacing:-2px;line-height:1;
+}
+.tagline{
+  margin-top:8px;
+  color:var(--teal);
+  font-size:12px;font-weight:600;
+  letter-spacing:2px;text-transform:uppercase;
+  display:flex;align-items:center;gap:8px;flex-wrap:wrap;
+}
+.tagline span{color:rgba(255,255,255,0.3)}
+
+/* ─── EVENT BAR ─── */
+.event-bar{
+  background:#111;
+  border:1px solid rgba(4,167,153,0.2);
+  border-top:none;
+  padding:16px 40px;
+  display:flex;gap:0;flex-wrap:wrap;
+}
+.event-item{
+  display:flex;align-items:flex-start;gap:10px;
+  padding:8px 24px 8px 0;
+  border-right:1px solid rgba(255,255,255,0.08);
+  margin-right:24px;
+}
+.event-item:last-child{border-right:none;margin-right:0}
+.event-icon{color:var(--teal);font-size:18px;margin-top:1px;flex-shrink:0}
+.event-label{color:var(--teal);font-size:10px;text-transform:uppercase;letter-spacing:1.5px;font-weight:600;display:block}
+.event-val{color:#fff;font-size:13px;font-weight:500;line-height:1.4}
+
+/* ─── FORM CARD ─── */
+.form-card{
+  background:#fff;
+  border:1px solid rgba(4,167,153,0.15);
+  border-top:none;
+  border-radius:0 0 12px 12px;
+  padding:36px 40px 40px;
+}
+
+.card-intro{
+  background:linear-gradient(135deg,rgba(4,167,153,0.06),rgba(247,127,3,0.04));
+  border:1px solid rgba(4,167,153,0.15);
+  border-radius:8px;
+  padding:16px 20px;
+  margin-bottom:32px;
+}
+.card-intro p{font-size:13px;color:#555;line-height:1.7}
+.card-intro strong{color:#000}
+
+.section-label{
+  display:flex;align-items:center;gap:10px;
+  font-size:10px;text-transform:uppercase;letter-spacing:2.5px;font-weight:700;
+  color:var(--teal);
+  margin-bottom:20px;margin-top:32px;
+}
+.section-label::after{content:'';flex:1;height:1px;background:rgba(4,167,153,0.2)}
+.section-label:first-child{margin-top:0}
+
+/* ─── VISITOR TYPE ─── */
+.type-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:10px;
+  margin-bottom:4px;
+}
+.type-card{
+  border:1.5px solid #e8e8e8;
+  border-radius:8px;padding:12px 14px;
+  display:flex;align-items:center;gap:10px;
+  cursor:pointer;transition:all .2s;
+  background:#fff;
+  user-select:none;
+}
+.type-card:hover{border-color:var(--teal);background:rgba(4,167,153,0.03)}
+.type-card.active{border-color:var(--teal);background:rgba(4,167,153,0.06)}
+.type-card input[type=checkbox]{
+  width:16px;height:16px;
+  accent-color:var(--teal);
+  cursor:pointer;flex-shrink:0;
+}
+.type-card .label{font-size:14px;font-weight:500;color:#222}
+.other-row{margin-top:10px;display:none}
+.other-row.show{display:block}
+
+/* ─── FIELDS ─── */
+.field-grid{display:grid;gap:18px;margin-bottom:4px}
+.field-grid.two{grid-template-columns:1fr 1fr}
+@media(max-width:520px){.field-grid.two{grid-template-columns:1fr}.type-grid{grid-template-columns:1fr}.logo-mfg,.logo-next{font-size:38px}.form-card,.header,.event-bar{padding-left:20px;padding-right:20px}}
+
+.field-label{
+  display:block;
+  font-size:11px;font-weight:600;
+  text-transform:uppercase;letter-spacing:.8px;
+  color:#000;margin-bottom:7px;
+}
+.field-label .req{color:var(--orange)}
+.field-label .opt{color:#bbb;font-weight:400;font-size:10px;text-transform:none;letter-spacing:0}
+
+input[type=text],input[type=email],input[type=tel],select,textarea{
+  width:100%;
+  border:1.5px solid #e0e0e0;border-radius:7px;
+  padding:0 14px;height:44px;
+  font-family:'DM Sans',sans-serif;font-size:14px;color:#000;
+  background:#fff;outline:none;
+  transition:border-color .2s,box-shadow .2s;
+  appearance:none;
+}
+input:focus,select:focus,textarea:focus{
+  border-color:var(--teal);
+  box-shadow:0 0 0 3px rgba(4,167,153,0.1);
+}
+input::placeholder,textarea::placeholder{color:#bbb}
+select{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%2304a799' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 14px center;
+  padding-right:40px;cursor:pointer;
+}
+
+/* ─── RADIO ─── */
+.date-cards{display:flex;flex-direction:column;gap:10px}
+.date-card{
+  border:1.5px solid #e8e8e8;border-radius:8px;
+  padding:14px 16px;
+  display:flex;align-items:center;gap:12px;
+  cursor:pointer;transition:all .2s;
+  user-select:none;
+}
+.date-card:hover{border-color:var(--teal)}
+.date-card.selected{border-color:var(--teal);background:rgba(4,167,153,0.05)}
+.date-card input[type=radio]{
+  width:16px;height:16px;accent-color:var(--teal);cursor:pointer;flex-shrink:0;
+}
+.date-card .d-title{font-size:14px;font-weight:500;color:#222}
+.date-card .d-sub{font-size:12px;color:#888;margin-left:auto}
+
+/* ─── DIVIDER ─── */
+.divider{border:none;border-top:1px solid #f0f0f0;margin:28px 0}
+
+/* ─── SUBMIT ─── */
+.submit-area{margin-top:36px;text-align:center}
+.btn-submit{
+  position:relative;overflow:hidden;
+  background:var(--teal);color:#fff;
+  border:none;border-radius:8px;
+  padding:15px 60px;
+  font-family:'DM Sans',sans-serif;
+  font-size:16px;font-weight:600;
+  letter-spacing:.3px;
+  cursor:pointer;
+  transition:background .2s,transform .15s,box-shadow .2s;
+  box-shadow:0 4px 20px rgba(4,167,153,0.3);
+}
+.btn-submit::after{
+  content:'';position:absolute;
+  top:0;left:-120%;width:60%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.3),transparent);
+  animation:shimmer 2.2s ease-in-out infinite;
+}
+@keyframes shimmer{0%{left:-120%}100%{left:160%}}
+.btn-submit:hover{background:var(--teal-dark);transform:translateY(-2px);box-shadow:0 8px 28px rgba(4,167,153,0.4)}
+.btn-submit:active{transform:translateY(0);box-shadow:0 2px 10px rgba(4,167,153,0.3)}
+.btn-submit:disabled{background:#aaa;cursor:not-allowed;box-shadow:none;transform:none}
+
+.form-note{font-size:12px;color:#aaa;margin-top:12px;line-height:1.6}
+
+/* ─── SUCCESS ─── */
+.success-screen{
+  display:none;
+  text-align:center;padding:48px 24px;
+}
+.success-screen.show{display:block}
+.success-icon{
+  width:72px;height:72px;border-radius:50%;
+  background:rgba(4,167,153,0.1);border:2px solid var(--teal);
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 20px;font-size:32px;
+}
+.success-screen h2{font-size:22px;font-weight:700;color:#000;margin-bottom:10px}
+.success-screen p{font-size:14px;color:#666;line-height:1.7;max-width:360px;margin:0 auto 24px}
+.btn-another{
+  background:transparent;border:1.5px solid var(--teal);color:var(--teal);
+  border-radius:7px;padding:10px 28px;font-size:14px;font-weight:600;
+  cursor:pointer;transition:all .2s;font-family:'DM Sans',sans-serif;
+}
+.btn-another:hover{background:var(--teal);color:#fff}
+
+/* ─── STATUS BAR ─── */
+.status-bar{
+  background:#000;
+  border:1px solid rgba(4,167,153,0.2);
+  border-radius:8px;margin-top:8px;
+  padding:12px 20px;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;
+}
+.status-bar .s-text{color:rgba(255,255,255,0.5);font-size:12px}
+.status-bar .s-count{color:var(--teal);font-weight:700;font-size:13px}
+
+/* ─── CONFIG NOTICE ─── */
+.config-notice{
+  background:rgba(247,127,3,0.08);
+  border:1px solid rgba(247,127,3,0.3);
+  border-radius:8px;padding:14px 18px;
+  margin-bottom:24px;
+  font-size:12px;color:#9a5500;line-height:1.6;
+}
+.config-notice strong{color:var(--orange)}
+.config-notice code{
+  background:rgba(247,127,3,0.1);border-radius:4px;
+  padding:1px 6px;font-family:monospace;font-size:11px;
+}
+
+/* Error */
+.err{color:#d00;font-size:12px;margin-top:5px;display:none}
+.err.show{display:block}
+input.invalid,select.invalid{border-color:#d00}
+</style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- ══ HEADER ══ -->
+  <div class="header">
+    <div class="header-grid"></div>
+    <div class="logo-wrap">
+      <div class="logo-row">
+        <span class="logo-mfg">MANUFACTURING</span>
+        <span class="logo-next">NEXT</span>
+      </div>
+      <div class="tagline">
+        Clean Power <span>|</span> Compact Precision <span>|</span> Connected Performance
+      </div>
+    </div>
+    <div class="header-accent"></div>
+  </div>
+
+  <!-- ══ EVENT BAR ══ -->
+  <div class="event-bar">
+    <div class="event-item">
+      <div class="event-icon">📅</div>
+      <div>
+        <span class="event-label">Date</span>
+        <span class="event-val">23–24 July 2026 (Thu–Fri)</span>
+      </div>
+    </div>
+    <div class="event-item">
+      <div class="event-icon">🕐</div>
+      <div>
+        <span class="event-label">Time</span>
+        <span class="event-val">10:00 AM – 4:00 PM</span>
+      </div>
+    </div>
+    <div class="event-item">
+      <div class="event-icon">📍</div>
+      <div>
+        <span class="event-label">Venue</span>
+        <span class="event-val">Takamatsu Machinery (Thailand) Co., Ltd.<br>
+        <span style="font-size:11px;opacity:.7">888/59 Moo 9, T. Bangpla, A. Bandplee, Samutparkarn 10540</span></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ FORM CARD ══ -->
+  <div class="form-card">
+
+    <!-- Config notice — remove after setup -->
+    <div class="config-notice" id="configNotice">
+      ⚙️ <strong>Setup required:</strong> Replace <code>https://script.google.com/macros/s/AKfycbzrkhDOMt832dxb8-ule4PFl7n-YPbsu7wRa13Rm8cqwKWqn6u-sq-Boc8W-jMYmxdoow/exec</code> in the script below with your Web App URL.
+      See <strong>SETUP_GUIDE.txt</strong> for step-by-step instructions. Remove this notice after setup.
+    </div>
+
+    <div class="card-intro">
+      <p><strong>"Manufacturing NEXT"</strong> — Representing the next generation of manufacturing driven by innovation, advanced technology, and adaptability to change.<br>
+      Please complete all required information accurately and thoroughly. We look forward to welcoming you to the event.</p>
+    </div>
+
+    <!-- ── FORM ── -->
+    <div id="formSection">
+
+      <div class="section-label">Visitor Type <span style="color:#bbb;font-size:10px;font-weight:400;text-transform:none;letter-spacing:0;margin-left:4px">(select all that apply)</span></div>
+      <div class="type-grid">
+        <label class="type-card" onclick="toggleType(this)">
+          <input type="checkbox" value="Customer" onchange="syncType(this)"> <span class="label">Customer</span>
+        </label>
+        <label class="type-card" onclick="toggleType(this)">
+          <input type="checkbox" value="Dealer" onchange="syncType(this)"> <span class="label">Dealer</span>
+        </label>
+        <label class="type-card" onclick="toggleType(this)">
+          <input type="checkbox" value="Join Maker" onchange="syncType(this)"> <span class="label">Join Maker</span>
+        </label>
+        <label class="type-card" id="otherCard" onclick="toggleType(this)">
+          <input type="checkbox" value="Other" id="otherCheck" onchange="toggleOther(this)"> <span class="label">Other</span>
+        </label>
+      </div>
+      <div class="other-row" id="otherRow">
+        <input type="text" id="otherText" placeholder="Please specify...">
+      </div>
+      <div class="err" id="err-type">Please select at least one visitor type.</div>
+
+      <hr class="divider">
+
+      <div class="section-label">Company Information</div>
+      <div class="field-grid two">
+        <div>
+          <label class="field-label" for="company">Company Name <span class="req">*</span></label>
+          <input type="text" id="company" placeholder="e.g. ABC Co., Ltd.">
+          <div class="err" id="err-company">Required.</div>
+        </div>
+        <div>
+          <label class="field-label" for="fullname">Full Name <span class="req">*</span></label>
+          <input type="text" id="fullname" placeholder="e.g. Somchai Jaidee">
+          <div class="err" id="err-fullname">Required.</div>
+        </div>
+      </div>
+      <div class="field-grid two" style="margin-top:18px">
+        <div>
+          <label class="field-label" for="position">Position / Department <span class="req">*</span></label>
+          <input type="text" id="position" placeholder="e.g. Production Manager">
+          <div class="err" id="err-position">Required.</div>
+        </div>
+        <div>
+          <label class="field-label" for="phone">Phone Number <span class="req">*</span></label>
+          <input type="tel" id="phone" placeholder="e.g. 081-234-5678">
+          <div class="err" id="err-phone">Required.</div>
+        </div>
+      </div>
+      <div class="field-grid" style="margin-top:18px">
+        <div>
+          <label class="field-label" for="email">Email <span class="req">*</span></label>
+          <input type="email" id="email" placeholder="e.g. somchai@company.com">
+          <div class="err" id="err-email">Please enter a valid email.</div>
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <div class="section-label">Attendance Date</div>
+      <div class="date-cards">
+        <label class="date-card" onclick="selectDate(this)">
+          <input type="radio" name="attendance" value="23 July 2026 (Thursday)">
+          <span class="d-title">23 July 2026</span>
+          <span class="d-sub">Thursday</span>
+        </label>
+        <label class="date-card" onclick="selectDate(this)">
+          <input type="radio" name="attendance" value="24 July 2026 (Friday)">
+          <span class="d-title">24 July 2026</span>
+          <span class="d-sub">Friday</span>
+        </label>
+        <label class="date-card" onclick="selectDate(this)">
+          <input type="radio" name="attendance" value="Both days">
+          <span class="d-title">Both days</span>
+          <span class="d-sub">23–24 July</span>
+        </label>
+      </div>
+      <div class="err" id="err-date">Please select an attendance date.</div>
+
+      <hr class="divider">
+
+      <div class="section-label">Referral <span style="color:#bbb;font-size:10px;font-weight:400;text-transform:none;letter-spacing:0;margin-left:4px">(optional)</span></div>
+      <div class="field-grid">
+        <div>
+          <label class="field-label" for="referral">Invited by — company or person name <span class="opt">(optional)</span></label>
+          <input type="text" id="referral" placeholder="e.g. Takamatsu Machinery or Mr. Somchai">
+        </div>
+      </div>
+
+      <div class="submit-area">
+        <button class="btn-submit" id="submitBtn" onclick="submitForm()">Submit Registration</button>
+        <p class="form-note">* Required fields &nbsp;·&nbsp; Your information is used solely for event registration purposes.</p>
+      </div>
+
+    </div><!-- /formSection -->
+
+    <!-- ── SUCCESS ── -->
+    <div class="success-screen" id="successScreen">
+      <div class="success-icon">✓</div>
+      <h2>Registration Complete!</h2>
+      <p>Thank you for registering for <strong>Manufacturing NEXT 2026</strong>.<br>
+      We look forward to welcoming you on <span id="confirmedDate"></span>.</p>
+      <button class="btn-another" onclick="resetForm()">Register Another Person</button>
+    </div>
+
+  </div><!-- /form-card -->
+
+  <!-- ── STATUS BAR ── -->
+  <div class="status-bar">
+    <span class="s-text">Private Show 2026 · Pre-Registration</span>
+    <span class="s-count" id="regCount">— registrations submitted</span>
+  </div>
+
+</div><!-- /page-wrap -->
+
+<script>
+// ════════════════════════════════════════════
+//  ⚙️  CONFIGURATION — EDIT THIS LINE ONLY
+// ════════════════════════════════════════════
+var SCRIPT_URL = "YOUR_GOOGLE_APPS_SCRIPT_URL";
+// ════════════════════════════════════════════
+
+var regCount = 0;
+
+function toggleType(card){
+  var cb = card.querySelector('input[type=checkbox]');
+  // let the native checkbox toggle, just update card style
+  setTimeout(function(){
+    card.classList.toggle('active', cb.checked);
+  }, 0);
+}
+function syncType(cb){
+  cb.closest('.type-card').classList.toggle('active', cb.checked);
+}
+function toggleOther(cb){
+  cb.closest('.type-card').classList.toggle('active', cb.checked);
+  var row = document.getElementById('otherRow');
+  row.className = 'other-row' + (cb.checked ? ' show' : '');
+  if(!cb.checked) document.getElementById('otherText').value='';
+}
+function selectDate(card){
+  document.querySelectorAll('.date-card').forEach(function(c){c.classList.remove('selected')});
+  setTimeout(function(){card.classList.add('selected')},0);
+}
+
+function showErr(id,show){
+  var el=document.getElementById('err-'+id);
+  if(el) el.className='err'+(show?' show':'');
+}
+function setInvalid(id,invalid){
+  var el=document.getElementById(id);
+  if(el){el.classList.toggle('invalid',invalid);}
+}
+
+function validate(){
+  var ok=true;
+  // types
+  var types=Array.from(document.querySelectorAll('.type-grid input[type=checkbox]:checked'));
+  showErr('type',!types.length); if(!types.length) ok=false;
+  // fields
+  ['company','fullname','position','phone'].forEach(function(f){
+    var v=document.getElementById(f).value.trim();
+    showErr(f,!v); setInvalid(f,!v); if(!v) ok=false;
+  });
+  // email
+  var em=document.getElementById('email').value.trim();
+  var emOk=em && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em);
+  showErr('email',!emOk); setInvalid('email',!emOk); if(!emOk) ok=false;
+  // date
+  var dt=document.querySelector('input[name="attendance"]:checked');
+  showErr('date',!dt); if(!dt) ok=false;
+  return ok;
+}
+
+function submitForm(){
+  if(!validate()) return;
+  var btn=document.getElementById('submitBtn');
+  btn.disabled=true; btn.textContent='Submitting…';
+
+  var types=Array.from(document.querySelectorAll('.type-grid input[type=checkbox]:checked'))
+    .map(function(c){
+      if(c.value==='Other'){var t=document.getElementById('otherText').value.trim(); return t?'Other: '+t:'Other';}
+      return c.value;
+    });
+
+  var attendance=document.querySelector('input[name="attendance"]:checked').value;
+  var payload={
+    timestamp: new Date().toLocaleString('en-GB'),
+    visitorType: types.join(', '),
+    company: document.getElementById('company').value.trim(),
+    fullname: document.getElementById('fullname').value.trim(),
+    position: document.getElementById('position').value.trim(),
+    phone: document.getElementById('phone').value.trim(),
+    email: document.getElementById('email').value.trim(),
+    attendance: attendance,
+    referral: document.getElementById('referral').value.trim() || '—'
+  };
+
+  if(SCRIPT_URL === "YOUR_GOOGLE_APPS_SCRIPT_URL"){
+    // Demo mode — no real submission
+    setTimeout(function(){
+      showSuccess(attendance);
+      btn.disabled=false; btn.textContent='Submit Registration';
+    },800);
+    return;
+  }
+
+  fetch(SCRIPT_URL, {
+    method:'POST',
+    mode:'no-cors',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify(payload)
+  })
+  .then(function(){
+    showSuccess(attendance);
+  })
+  .catch(function(){
+    alert('Network error. Please check your connection and try again.');
+  })
+  .finally(function(){
+    btn.disabled=false; btn.textContent='Submit Registration';
+  });
+}
+
+function showSuccess(date){
+  regCount++;
+  document.getElementById('regCount').textContent = regCount + ' registration' + (regCount===1?'':'s') + ' submitted this session';
+  document.getElementById('confirmedDate').textContent = date;
+  document.getElementById('formSection').style.display='none';
+  document.getElementById('successScreen').className='success-screen show';
+  document.getElementById('configNotice') && (document.getElementById('configNotice').style.display='none');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function resetForm(){
+  document.getElementById('formSection').style.display='block';
+  document.getElementById('successScreen').className='success-screen';
+  // clear
+  document.querySelectorAll('input[type=text],input[type=email],input[type=tel]').forEach(function(i){i.value='';i.classList.remove('invalid')});
+  document.querySelectorAll('input[type=checkbox]').forEach(function(c){c.checked=false});
+  document.querySelectorAll('input[type=radio]').forEach(function(r){r.checked=false});
+  document.querySelectorAll('.type-card').forEach(function(c){c.classList.remove('active')});
+  document.querySelectorAll('.date-card').forEach(function(c){c.classList.remove('selected')});
+  document.getElementById('otherRow').className='other-row';
+  document.querySelectorAll('.err').forEach(function(e){e.className='err'});
+}
+</script>
+</body>
+</html>
